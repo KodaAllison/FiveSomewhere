@@ -1,5 +1,6 @@
 const express = require("express");
 const moment = require("moment-timezone");
+const emoji = require('node-emoji');
 const app = express();
 const PORT = 3000;
 
@@ -16,6 +17,8 @@ const timezones = [
   'Asia/Kolkata',
   "Asia/Dubai",
   "Asia/Dhaka", 
+  "Asia/Yekaterinburg",
+  "Indian/Maldives",
   "Europe/Moscow", 
   "Europe/Helsinki", 
   "Europe/Paris", 
@@ -42,8 +45,13 @@ app.get("/", (req, res) => {
       const hour = currentTime.hour();
       return hour === 17;
     });
-
-    res.render("index", { fivePMZones });
+  
+    const cities = fivePMZones.map((tz) => {
+      const parse = tz.split('/');
+      return parse[1]; // Extract the city name
+    });
+    const beerEmoji = emoji.get('beer');
+    res.render("index", { cities, beerEmoji });
   } catch (error) {
     console.error(error);
     res.status(500).send("Error processing time data");

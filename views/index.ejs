@@ -13,9 +13,9 @@
     <h1 class="text-3xl font-bold text-center my-4">It's 5PM Somewhere</h1>
     <div class="card shadow-lg compact bg-base-100">
       <div class="card-body">
-        <h2 class="card-title">Current Locations:</h2>
+        <h2 class="card-title"><%= beerEmoji %> Currently 5PM:</h2>
         <ul class="list-disc list-inside">
-          <% fivePMZones.forEach(zone => { %>
+          <% cities.forEach(zone => { %>
             <li class="text-xl m-2 p-2 bg-blue-100 rounded shadow-lg"><%= zone %></li>
           <% }) %>
         </ul>
