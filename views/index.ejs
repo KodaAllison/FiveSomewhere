@@ -16,7 +16,9 @@
         <h2 class="card-title"><%= beerEmoji %> Currently 5PM:</h2>
         <ul class="list-disc list-inside">
           <% cities.forEach(zone => { %>
-            <li class="text-xl m-2 p-2 bg-blue-100 rounded shadow-lg"><%= zone %></li>
+            <li class="text-xl m-2 p-2 bg-blue-100 rounded shadow-lg">
+              <a href="https://en.wikipedia.org/wiki/<%= zone %>" target="_blank" rel="noopener noreferrer"><%= zone %></a>
+            </li>
           <% }) %>
         </ul>
       </div>
