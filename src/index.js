@@ -40,9 +40,6 @@ app.get("/", (req, res) => {
     const fivePMZones = timezones.filter((tz) => {
       const currentTime = moment.tz(tz);
       const hour = currentTime.hour();
-      console.log(
-        `Timezone: ${tz}, Current Time: ${currentTime.format()}, Hour: ${hour}`
-      );
       return hour === 17;
     });
 
